@@ -1,0 +1,6 @@
+xmin:313 ymin:0
+xmax:651 ymin:320
+
+
+is_boundingbox 判断区域内是否有目标
+将接收信号由boolean改为3种类型，分别代表可运行、判断抓取、等待（待定）

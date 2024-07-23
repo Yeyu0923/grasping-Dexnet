@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/xfy/gqcnn_ws/src/gqcnn-master/test_model/GQCNN-2.0/model.ckpt"
+all_model_checkpoint_paths: "/home/xfy/gqcnn_ws/src/gqcnn-master/test_model/GQCNN-2.0/model.ckpt"

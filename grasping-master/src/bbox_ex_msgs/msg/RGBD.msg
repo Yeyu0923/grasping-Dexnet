@@ -1,0 +1,4 @@
+sensor_msgs/Image colorimage
+sensor_msgs/Image depthimage
+sensor_msgs/CameraInfo camerainfo
+BoundingBoxes BoundingBoxes

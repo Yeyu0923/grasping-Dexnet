@@ -1,0 +1,47 @@
+<launch>
+  <!-- Name to uniquely identify the device -->
+  <arg name="camera"           default="camera" />
+  
+  <!-- Maximum size of image buffer -->
+  <arg name="bufsize"               default="100" />
+  
+  <!-- Whether or not to show images collected every 30 seconds -->
+  <arg name="show_framerate"        default="true" />
+
+  <arg name="grasp_mothed"  default="gqcnn" />
+  <!-- <arg name="grasp_mothed"  default="GR-ConvNet" /> -->
+
+  <arg name="ns"  default="gqcnn" />
+  
+  <!-- Rqt_graph -->
+  <!-- <node pkg="rqt_graph" name="rqt_graph" type="rqt_graph"/> -->
+
+  <!-- Configuration file for Grasp Planner Node -->
+  <arg name="model_name"        default="GQCNN-2.0" />
+  <arg name="model_dir"        default="default" />
+  <arg name="fully_conv"        default="False" />
+  
+  <node name="grasp_planner"  pkg="gqcnn" type="grasp_planner_node.py" ns="$(arg ns)" output="screen" >
+    	<param name="model_name"           value="$(arg model_name)" />
+    	<param name="model_dir"           value="$(arg model_dir)" />
+    	<param name="fully_conv"           value="$(arg fully_conv)" />
+  </node>
+  <arg name="weights_path" default="/home/dlmux/Perception/Dex-Net/grasping-master/src/YOLOX-ROS/weights/epoch_35_ckpt.pth"/>
+
+  <node name="stream_image_buffer" pkg="gqcnn" type="transformation_node.py"  output="screen" >
+    <param name="image_size/width" value="848"/>
+    <param name="image_size/height" value="480"/>
+    <param name="yolo_type" value="yolox-w"/>
+    <param name="fuse" value="False"/>
+    <param name="trt" value="False"/>
+    <param name="rank" value="0"/>
+    <param name="ckpt_file" value="$(arg weights_path)"/>
+    <param name="conf" value="0.3"/>
+    <param name="nmsthre" value="0.65"/>
+    <param name="img_size" value="640"/>
+    <param name="bufsize"            value="$(arg bufsize)" />
+    <param name="show_framerate"     value="$(arg show_framerate)" />
+    <param name="grasp_mothed"       value="$(arg grasp_mothed)" />
+  </node>
+  
+</launch>

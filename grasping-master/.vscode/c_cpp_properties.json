@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/xfy/gqcnn_ws/devel/include/**",
+        "/home/xfy/catkin_ws/devel_isolated/realsense2_camera/include/**",
+        "/home/xfy/catkin_ws/devel_isolated/apriltag_ros/include/**",
+        "/home/xfy/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/xfy/catkin_ws/devel_isolated/apriltag/include/**",
+        "/home/xfy/catkin_ws/src/apriltag_ros/apriltag_ros/include/**",
+        "/home/xfy/catkin_ws/src/realsense-ros/realsense2_camera/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
